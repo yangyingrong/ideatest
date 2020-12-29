@@ -11,4 +11,7 @@ public class BlogserverApplication {
     public static void main(String[] args) {
         SpringApplication.run(BlogserverApplication.class, args);
     }
+
+
+    //什么鬼东西
 }
