@@ -12,6 +12,8 @@ public class BlogserverApplication {
         SpringApplication.run(BlogserverApplication.class, args);
     }
 
+    public void shenmagui(){
 
+    }
     //什么鬼东西
 }
