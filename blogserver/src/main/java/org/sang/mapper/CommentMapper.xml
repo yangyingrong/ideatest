@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sang.mapper.CommentMapper">
+    <select id="getComments" resultType="org.sang.bean.Comment">
+        select c.id,c.aid,c.`content`,c.`publishDate`,u.`nickname`,c.uid from comments c,user u
+        where c.`uid`=u.`id`
+        <if test="keywords!=null">
+            AND  content like concat('%',#{keywords},'%')
+        </if>
+        order by c.publishDate DESC  limit #{start},#{count};
+    </select>
+
+    <select id="getCommentsCount" resultType="int">
+        select count(*) from comments
+        <where>
+            <if test="keywords!=null">
+                AND content LIKE  concat('%',#{keywords},'%')
+            </if>
+        </where>
+    </select>
+</mapper>
